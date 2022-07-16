@@ -1,0 +1,17 @@
+{
+  "name": "adapt-contrib-narrative",
+  "version": "10.0.0",
+  "framework": ">=5.19.1",
+  "homepage": "https://github.com/wtechsas/adapt-contrib-narrative",
+  "bugs": "https://github.com/wtechsas/adapt-contrib-narrative/issues",
+  "component" : "narrative",
+  "targetAttribute": "_narrative",
+  "displayName" : "Presentación de diapositivas",
+  "description": "Un componente que muestra una galería de imágenes acompañadas de texto alusivas a una presentación de diapositivas",
+  "main": "/js/adapt-contrib-narrative.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPL-3.0"
+}

@@ -1,0 +1,192 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "globals": {
+    "ariaRegion": {
+      "type": "string",
+      "required": true,
+      "title": "Región del componente",
+      "default": "Presentación de diapositivas. Seleccione el botón siguiente para avanzar.",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    },
+    "previous": {
+      "type": "string",
+      "required": true,
+      "title": "Vover",
+      "default": "{{#if title}}Volver a {{{title}}} (item {{itemNumber}} of {{totalItems}}){{else}}{{_globals._accessibility._ariaLabels.previous}}{{/if}}",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    },
+    "next": {
+      "type": "string",
+      "required": true,
+      "title": "Continuar",
+      "default": "{{#if title}}Continuar a {{{title}}} (item {{itemNumber}} of {{totalItems}}){{else}}{{_globals._accessibility._ariaLabels.next}}{{/if}}",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    }
+  },
+  "properties": {
+    "_supportedLayout": {
+      "type": "string",
+      "required": true,
+      "enum": ["full-width", "half-width", "both"],
+      "default": "full-width",
+      "editorOnly": true
+    },
+    "instruction": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "title": "Instrucciones",
+      "inputType": "Text",
+      "validators": [],
+      "help": "Instrucciones que se mostrarán para este componente.",
+      "translatable": true
+    },
+    "mobileInstruction": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "title": "Instrucciones en dispositivos móvil",
+      "inputType": "Text",
+      "validators": [],
+      "help": "Instrucciones que se mostrarán para este componente en dispositivos móviles.",
+      "translatable": true
+    },
+    "_isTextBelowImage": {
+      "type": "boolean",
+      "required": true,
+      "default": false,
+      "title": "Mover el texto debajo de la imagen",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "Si está habilitado, el texto se mostrará debajo de la imagen en lugar de estar a un lado."
+    },
+    "_isMobileTextBelowImage": {
+      "type": "boolean",
+      "required": true,
+      "default": false,
+      "title": "Mover el texto debajo de la imagen en el móvil",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "Si está habilitado, en dispositivos móviles, el texto se mostrará debajo de la imagen."
+    },
+    "_hasNavigationInTextArea": {
+      "type": "boolean",
+      "required": true,
+      "default": false,
+      "title": "Mover la navegación al área de texto",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "Si está habilitado, todos los elementos de navegación se moverán al área de texto"
+    },
+    "_setCompletionOn": {
+      "type": "string",
+      "required": true,
+      "enum": ["inview", "allItems"],
+      "default": "allItems",
+      "title": "Establecer como finalizado en",
+      "inputType": {
+        "type": "Select",
+        "options": [
+          { "val": "inview", "label": "Al ver"},
+          { "val": "allItems", "label": "Al ver todos los items"}
+        ]
+      },
+      "validators": ["required"],
+      "help": "Marcar como completado cuando se haya visto todas las imágenes (allItems) o marcar como completado cuando se haya visto alguna de las imágenes (inview)"
+    },
+    "_items": {
+      "type": "array",
+      "required": false,
+      "title": "Imágenes de la presentación",
+      "items": {
+        "type": "object",
+        "required": false,
+        "properties": {
+          "title": {
+            "type": "string",
+            "required": false,
+            "default": "",
+            "title": "Título de la diapositiva",
+            "inputType": "Text",
+            "validators": [],
+            "help": "",
+            "translatable": true
+          },
+          "_ariaLevel": {
+            "type": "number",
+            "required": true,
+            "default": 0,
+            "title": "Nivel del título",
+            "inputType": "Number",
+            "validators": ["required", "number"],
+            "help": "Aria level para el título"
+          },
+          "body": {
+            "type": "string",
+            "required": false,
+            "default": "",
+            "title": "Texto de la presentación",
+            "inputType": "TextArea",
+            "validators": [],
+            "help": "Texto que se mostrará para esta diapositiva",
+            "translatable": true
+          },
+          "_graphic": {
+            "type": "object",
+            "title": "Imagen de la diapositiva",
+            "properties": {
+              "src": {
+                "type": "string",
+                "required": true,
+                "default": "",
+                "title": "Seleccionar imagen",
+                "inputType": "Asset:image",
+                "validators": ["required"],
+                "help": ""
+              },
+              "alt": {
+                "type": "string",
+                "required": false,
+                "default": "",
+                "title": "Texto opcional",
+                "inputType": "Text",
+                "validators": [],
+                "help": "Una descripción de la imagen; necesaria cuando tiene un significado que debe ser transmitido. En el caso de las imágenes 'decorativas', debe dejarse en blanco.",
+                "translatable": true
+              },
+              "attribution": {
+                "type": "string",
+                "required": false,
+                "default": "",
+                "title": "Atribución",
+                "inputType": "Text",
+                "validators": [],
+                "help": "Texto que se mostrará como una atribución",
+                "translatable": true
+              }
+            }
+          },
+          "strapline": {
+            "type": "string",
+            "required": true,
+            "default": "",
+            "title": "Eslogan de la diapositiva",
+            "inputType": "Text",
+            "validators": ["required"],
+            "help": "",
+            "translatable": true
+          }
+        }
+      }
+    }
+  }
+}
