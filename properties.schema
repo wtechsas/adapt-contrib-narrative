@@ -118,7 +118,7 @@
             "title": "Título de la diapositiva",
             "inputType": "Text",
             "validators": [],
-            "help": "",
+            "help": "Corresponde al título que tendra la diapositiva.",
             "translatable": true
           },
           "_ariaLevel": {
@@ -128,7 +128,7 @@
             "title": "Nivel del título",
             "inputType": "Number",
             "validators": ["required", "number"],
-            "help": "Aria level para el título"
+            "help": "Corresponde al nivel de Aria Label que se desea establecer para la lectura por pantalla."
           },
           "body": {
             "type": "string",
@@ -182,7 +182,7 @@
             "title": "Eslogan de la diapositiva",
             "inputType": "Text",
             "validators": ["required"],
-            "help": "",
+            "help": "Corresponde al título que se muestra en un botón que despliega la información del texto y el título de la diapositiva en dispositivos moviles o de baja resolución.",
             "translatable": true
           }
         }
