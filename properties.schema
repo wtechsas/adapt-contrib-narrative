@@ -16,7 +16,7 @@
     "previous": {
       "type": "string",
       "required": true,
-      "title": "Vover",
+      "title": "Volver",
       "default": "{{#if title}}Volver a {{{title}}} (item {{itemNumber}} of {{totalItems}}){{else}}{{_globals._accessibility._ariaLabels.previous}}{{/if}}",
       "inputType": "Text",
       "validators": [],
